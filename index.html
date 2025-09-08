@@ -10,14 +10,12 @@
   <!-- AMP Boilerplate -->
   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   
-  <!-- AMP Components - apenas o necessário -->
+  <!-- AMP Components -->
   <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-  
-  <!-- Fonts - usando fontes do sistema para zero bloqueio -->
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   
   <!-- Meta tags for SEO -->
   <meta name="description" content="Aprenda os MANEJOS que colheram 135 SC/HA de SOJA mesmo com veranico. Evento online gratuito sobre manejo de soja.">
-  
   
   <!-- Custom CSS - Ultra otimizado -->
   <style amp-custom>
@@ -275,11 +273,11 @@
       <h2 class="form-title">Preencha seus dados 👇</h2>
       
       <form method="post" 
-            action-xhr="/.netlify/functions/process-form"
+            action-xhr="https://primary-production-bf2d.up.railway.app/webhook/cb3b0556-230d-46a7-a941-4c902d29da55"
             target="_top"
             id="lead-form"
             class="amp-form"
-            on="submit:loading-message.show;submit-success:success-message.show,loading-message.hide;submit-error:error-message.show,loading-message.hide">
+            on="submit:loading-message.show;submit-success:AMP.navigateTo(url=event.response.redirectTo);submit-error:error-message.show,loading-message.hide">
         
         <!-- Form Fields -->
         <div class="form-group">
@@ -320,7 +318,7 @@
       <!-- Mensagens de Sucesso e Erro -->
       <div id="success-message" class="success-message" hidden>
         <h3>✅ Inscrição realizada com sucesso!</h3>
-        <p>Dados enviados com sucesso!</p>
+        <p>Redirecionando para a pesquisa...</p>
       </div>
       
       <div id="error-message" class="error-message" hidden>
@@ -330,5 +328,10 @@
     </div>
   </div>
   
+  <!-- GTM for AMP (assíncrono; dispara ao ficar visível) -->
+  <amp-analytics
+    config="https://www.googletagmanager.com/amp.json?id=GTM-MKMMD4MN&gtm.url=SOURCE_URL"
+    data-credentials="include">
+  </amp-analytics>
 </body>
 </html>
