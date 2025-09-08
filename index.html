@@ -328,10 +328,26 @@
     </div>
   </div>
   
-  <!-- GTM for AMP (assíncrono; dispara ao ficar visível) -->
-  <amp-analytics
-    config="https://www.googletagmanager.com/amp.json?id=GTM-MKMMD4MN&gtm.url=SOURCE_URL"
-    data-credentials="include">
+  <!-- GTM for AMP - Configuração robusta -->
+  <amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+    {
+      "vars": {
+        "gtag_id": "GTM-MKMMD4MN",
+        "config": {
+          "GTM-MKMMD4MN": {
+            "groups": "default"
+          }
+        }
+      },
+      "triggers": {
+        "pageview": {
+          "on": "visible",
+          "request": "pageview"
+        }
+      }
+    }
+    </script>
   </amp-analytics>
 </body>
 </html>
