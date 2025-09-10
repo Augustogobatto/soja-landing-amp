@@ -332,17 +332,29 @@
   <!-- Facebook Pixel - AMP Compatible -->
   <amp-pixel src="https://www.facebook.com/tr?id=370659861682673&ev=PageView&noscript=1"></amp-pixel>
   
-  <!-- GTM for AMP - Configuração robusta -->
+  <!-- Facebook Pixel Analytics -->
+  <amp-analytics type="facebookpixel">
+    <script type="application/json">
+    {
+      "vars": {
+        "pixelId": "370659861682673"
+      },
+      "triggers": {
+        "pageview": {
+          "on": "visible",
+          "request": "pageview"
+        }
+      }
+    }
+    </script>
+  </amp-analytics>
+  
+  <!-- GTM for AMP - Configuração simples -->
   <amp-analytics type="gtag" data-credentials="include">
     <script type="application/json">
     {
       "vars": {
-        "gtag_id": "GTM-MKMMD4MN",
-        "config": {
-          "GTM-MKMMD4MN": {
-            "groups": "default"
-          }
-        }
+        "gtag_id": "GTM-MKMMD4MN"
       },
       "triggers": {
         "pageview": {
