@@ -13,6 +13,7 @@
   <!-- AMP Components -->
   <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-pixel" src="https://cdn.ampproject.org/v0/amp-pixel-0.1.js"></script>
   
   <!-- Meta tags for SEO -->
   <meta name="description" content="Aprenda os MANEJOS que colheram 135 SC/HA de SOJA mesmo com veranico. Evento online gratuito sobre manejo de soja.">
@@ -328,6 +329,9 @@
     </div>
   </div>
   
+  <!-- Facebook Pixel - AMP Compatible -->
+  <amp-pixel src="https://www.facebook.com/tr?id=370659861682673&ev=PageView&noscript=1"></amp-pixel>
+  
   <!-- GTM for AMP - Configuração robusta -->
   <amp-analytics type="gtag" data-credentials="include">
     <script type="application/json">
@@ -344,6 +348,15 @@
         "pageview": {
           "on": "visible",
           "request": "pageview"
+        },
+        "form_submit": {
+          "on": "submit",
+          "request": "event",
+          "vars": {
+            "event_name": "form_submit",
+            "event_category": "engagement",
+            "event_label": "lead_form"
+          }
         }
       }
     }
