@@ -10,6 +10,15 @@
   <!-- AMP Boilerplate -->
   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   
+  <!-- GTM Head Script - PRIORIDADE MÁXIMA -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MKMMD4MN');
+  </script>
+  
   <!-- AMP Components -->
   <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -349,12 +358,27 @@
     </script>
   </amp-analytics>
   
-  <!-- GTM for AMP - Configuração simples -->
-  <amp-analytics type="gtag" data-credentials="include">
+  <!-- GTM - Configuração robusta e múltipla -->
+  
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKMMD4MN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  <!-- GTM Head Script -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MKMMD4MN');
+  </script>
+  
+  <!-- GTM AMP Analytics -->
+  <amp-analytics type="gtm" data-credentials="include">
     <script type="application/json">
     {
       "vars": {
-        "gtag_id": "GTM-MKMMD4MN"
+        "gtm_id": "GTM-MKMMD4MN"
       },
       "triggers": {
         "pageview": {
@@ -369,6 +393,23 @@
             "event_category": "engagement",
             "event_label": "lead_form"
           }
+        }
+      }
+    }
+    </script>
+  </amp-analytics>
+  
+  <!-- GTM Universal Analytics -->
+  <amp-analytics type="googleanalytics" data-credentials="include">
+    <script type="application/json">
+    {
+      "vars": {
+        "gtag_id": "GTM-MKMMD4MN"
+      },
+      "triggers": {
+        "pageview": {
+          "on": "visible",
+          "request": "pageview"
         }
       }
     }
